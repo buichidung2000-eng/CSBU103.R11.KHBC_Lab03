@@ -1,0 +1,52 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #2b2a7a, #1b1642 60%);
+}
+
+.game {
+  width: min(92vw, 360px);
+  padding: 1.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 22px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+h1 { margin: 0 0 1rem; font-size: 1.6rem; }
+h1 span { color: #38bdf8; }
+
+.scoreboard { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 1rem; }
+.score { display: flex; flex-direction: column; padding: 0.5rem; border-radius: 10px;
+  background: rgba(255, 255, 255, 0.07); border: 1px solid transparent; }
+.score.active { border-color: #ff5fa2; }
+.label { font-size: 0.65rem; color: #b7b4f5; }
+.value { font-size: 1.1rem; font-weight: 700; }
+.score-x .value { color: #ff5fa2; }
+.score-o .value { color: #38bdf8; }
+
+.status { margin: 0 0 1rem; font-weight: 600; font-size: 0.9rem; }
+.mark-x { color: #ff5fa2; }
+.mark-o { color: #38bdf8; }
+
+.board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 1.25rem; }
+.cell { aspect-ratio: 1; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07); font: 800 2rem 'Poppins', system-ui, sans-serif; cursor: pointer; }
+.cell.x { color: #ff5fa2; text-shadow: 0 0 14px rgba(255, 95, 162, 0.7); }
+.cell.o { color: #38bdf8; text-shadow: 0 0 14px rgba(56, 189, 248, 0.7); }
+
+.restart-btn { padding: 0.55rem 1.4rem; border: 0; border-radius: 999px; font-weight: 700; cursor: pointer;
+  color: #1b1642; background: linear-gradient(90deg, #ff8fc4, #4fb4f5); }
+
+.cell:hover:not(:disabled):not(.x):not(.o) { background: rgba(255, 255, 255, 0.14); }
+.cell:disabled { cursor: default; }
+.cell.win { background: rgba(255, 255, 255, 0.22); border-color: rgba(255, 255, 255, 0.6); }
+.restart-btn:hover { filter: brightness(1.08); }
